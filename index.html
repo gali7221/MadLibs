@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="">
+<head>
+	<title>Mad Libs</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="https://code.angularjs.org/1.3.10/angular.js"></script>
+</head>
+<body>
+	<header class="header">
+		<div class="mad-face">
+			<img src="images/mad-lib-happy-face.png">
+		</div>
+		<div class="mad-logo">
+			<img src="images/ng-mad-libs-logo.png">
+			<h1>Automate This</h1>
+		</div>
+	</header>
+
+	<section class="input-section">
+		<h1>Provide the following words: </h1>
+			<input type="text" placeholder="Male Name" ng-model="template.maleName" />
+			<input type="text" placeholder="Dirty Task" ng-model="template.dTask" />
+			<input type="text" placeholder="Obnoxious Celebrity" ng-model="template.ocelebrity" />
+			<input type="text" placeholder="Job Title" ng-model="template.jobTitle" />
+			<input type="text" placeholder="Celebrity" ng-model="template.celebrity" />
+			<input type="text" placeholder="Huge Number" ng-model="template.hugeNum" />
+			<input id="lastInput" type="text" placeholder="Tedious Task" ng-model="template.tTask" />
+			<input id="lastInput" type="text" placeholder="Useless Skill" ng-model="template.skill" />
+			<input id="lastInput" type="text" placeholder="Adjective" ng-model="template.adjective" />
+
+			<div class="border-bottom"></div>
+
+			<p><span>{{template.maleName}}</span> was a <span>{{template.jobTitle}}</span> who loved technology. Although she loved 
+			parts of her job, she absolutely hated <span>{{template.tTask}}</span> and <span>{{template.dTask}}</span>. So, <span>{{template.maleName}}</span> met with her life mentor 
+			<span>{{template.celebrity}}</span> who told her to learn how to <span>{{template.skill}}</span> with Thinkful. Thinkful didn't offer a course on <span>{{template.skill}}</span> so she studied programming instead. What a great decision! With her new skills, <span>{{template.maleName}}</span> built a(n) <span>{{template.adjective}}</span> robot named <span>{{template.ocelebrity}}</span> that not only loved <span>{{template.dTask}}</span> but did it <span>{{template.hugeNum}}x</span> faster</p>
+	</section>
+
+</body>
+</html>
