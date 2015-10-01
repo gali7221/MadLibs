@@ -4,84 +4,78 @@ html, body {
 
 }
 
-/* Header Section */
-
 .header {
-	width: 1280px;
-	border: 5px solid black;
+  width: 1280px;
+  border: 5px solid black;
 }
 
 .mad-face {
-	display: inline-block;
-	border-right: 5px solid black;
-	padding: 20px 50px;
-
+  display: inline-block;
+  border-right: 5px solid black;
+  padding: 20px 50px;
 }
 
 .mad-logo {
-	display: inline-block;
-	padding-top: -20px;
-	margin-left: 225px;
-	height: 20px;
+  display: inline-block;
+  padding-top: -20px;
+  margin-left: 225px;
+  height: 20px;
 }
 
 .mad-logo img {
-	padding-top: 0px;
+  padding-top: 0px;
 }
 
 .mad-logo h1 {
-	margin-left: 150px;
-	margin-top: 50px;
+  margin-left: 150px;
+  margin-top: 50px;
 }
 
-.male-female {
-	margin-left: 50px;
+.wrapper {
+  display: inline-block;
 }
-
-#optionMale, #optionFemale {
-	margin: 0 25px 25px 50px;
-}
-
-.input-section {
-	border-bottom: 3px solid black;
-}
-
-.input-section h1 {
-	margin: 50px;
-
-}
-
 .input-section input {
-	margin: 20px 100px 20px 125px;
-	padding: 15px;
-	border: 1px dotted black;
+  margin: 20px 100px 20px 125px;
+  padding: 15px;
+  border: 1px dotted black;
+}
+
+.alert {
+  margin: 0 auto; 
+  color: red;
+  border: 1px solid red;
+  text-align: center;
 }
 
 #lastInput {
-	margin-bottom: 50px;
+  margin-bottom: 50px;
+  border: 1px dotted black;
 }
+
+
+
 
 .border-bottom {
-	border-bottom: 3px solid black;
+  border-bottom: 3px solid black;
 }
 
-#male-text, #female-text, .input-section {
-	display: none;
-} 
+.madlib {
+  margin: 40px auto;
+}
 
-p {
-	margin: 35px 40px 15px 40px;
-	line-height: 20px;
-	font-size: 18px;
-	word-spacing: 30px;
-	font-family: "Courier New", Courier, monospace;
+.madlib span {
+  text-decoration: underline;
+}
+
+.madlib p {
+  font-size: 24px;
 }
 
 p span {
-	font-size: 20px;
-	font-style: bold;
-	text-decoration: underline;
-	text-transform: uppercase;
-	margin: 0 5px;
+  font-size: 20px;
+  font-style: bold;
+  text-decoration: underline;
+  text-transform: uppercase;
+  margin: 0 5px;
 }
 

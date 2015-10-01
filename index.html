@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html ng-app="myApp" ng-controller="madlibsController">
+<html ng-app="madLibs" ng-controller="madlibsController">
 <head>
 	<title>Mad Libs</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script src="https://code.angularjs.org/1.3.10/angular.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.8/angular-messages.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
 </head>
 <body>
@@ -17,38 +19,62 @@
 			<h1>Automate This</h1>
 		</div>
 	</header>
-
-	<h3 class="male-female">Male or Female?</h3>
-		<label>
-			<input type="radio" name="radioOptions" id="optionMale" value="male" ng-model="value" ng-change="newValue(value)">
-			Male
-		</label>
-		<label>
-			<input type="radio" name="radioOptions" id="optionFemale" value="female" ng-model="value" ng-change="newValue(value)">
-			Female
-		</label>
-
+	
 	<section class="input-section">
 
-		<h1>Provide the following words: </h1>
-			<input type="text" placeholder="Name" ng-model="template.name" />
-			<input type="text" placeholder="Dirty Task" ng-model="template.dTask" />
-			<input type="text" placeholder="Obnoxious Celebrity" ng-model="template.ocelebrity" />
-			<input type="text" placeholder="Job Title" ng-model="template.jobTitle" />
-			<input type="text" placeholder="Celebrity" ng-model="template.celebrity" />
-			<input type="text" placeholder="Huge Number" ng-model="template.hugeNum" />
-			<input id="lastInput" type="text" placeholder="Tedious Task" ng-model="template.tTask" />
-			<input id="lastInput" type="text" placeholder="Useless Skill" ng-model="template.skill" />
-			<input id="lastInput" type="text" placeholder="Adjective" ng-model="template.adjective" />
+		<div class="alert alert-danger" ng-if="madLibForm.$submitted" ng-messages="madLibForm.template.name.$error || madLibForm.template.dTask.$error || madLibForm.template.ocelebrity.$error || madLibForm.template.jobTitle.$error || madLibForm.template.celebrity.$error || madLibForm.template.adjective.$error || madLibForm.template.skill.$error || madLibForm.template.tTask.$error || madLibForm.template.template.hugeNum.$error" ng-show="showError">
+			All Fields are Required
+		</div>
 
-			<div class="border-bottom"></div>
+		<form name="madLibForm" ng-submit="submit()" ng-show="showInput" novalidate>
+			<div class="wrapper">
+				<input type="text" placeholder="Name" name="name" ng-model="template.name" required/>
+			</div>
+			
+			<div class="wrapper">
+				<input type="text" placeholder="Dirty Task" name="dTask" ng-model="template.dTask" required/>
+			</div>
+			
+			<div class="wrapper">
+				<input type="text" placeholder="Obnoxious Celebrity" name="ocelebrity" ng-model="template.ocelebrity" required/>
+			</div>
+			
+			<div class="wrapper">
+				<input type="text" placeholder="Job Title" name="jobTitle" ng-model="template.jobTitle" required/>
+			</div>
+			
+			<div class="wrapper">
+				<input type="text" placeholder="Celebrity" name="celebrity" ng-model="template.celebrity" required/>
+			</div>
+			
+			<div class="wrapper">
+				<input type="number" placeholder="Huge Number" name="hugeNum" ng-model="template.hugeNum" required/>
+			</div>
+			
+			<div class="wrapper">
+				<input id="lastInput" type="text" placeholder="Tedious Task" name="tTask" ng-model="template.tTask" required/>
+			</div>
 
+			<div class="wrapper">
+				<input id="lastInput" type="text" placeholder="Useless Skill" name="skill" ng-model="template.skill" required/>
+			</div>
+			
+			<div class="wrapper">
+				<input id="lastInput" type="text" placeholder="Adjective" name="adjective" ng-model="template.adjective" required/>
+			</div>
+			<br>			
+		<button class="submit-button" type="submit">Submit</button>
+		</form>
+		
+		<div class="border-bottom"></div>
+
+		<div class="madlib" ng-hide="showMadLibs">
 			<p id="male-text"><span>{{template.name}}</span> was a <span>{{template.jobTitle}}</span> who loved technology. Although he loved parts of his job, he absolutely hated <span>{{template.tTask}}</span> and <span>{{template.dTask}}</span>. So, <span>{{template.name}}</span> met with his life mentor 
 			<span>{{template.celebrity}}</span> who told him to learn how to <span>{{template.skill}}</span> with Thinkful. Thinkful didn't offer a course on <span>{{template.skill}}</span> so he studied programming instead. What a great decision! With his new skills, <span>{{template.name}}</span> built a(n) <span>{{template.adjective}}</span> robot named <span>{{template.ocelebrity}}</span> that not only loved <span>{{template.dTask}}</span> but did it <span>{{template.hugeNum}}x</span> faster</p>
 
-			<p id="female-text"><span>{{template.name}}</span> was a <span>{{template.jobTitle}}</span> who loved technology. Although she loved 
-			parts of her job, she absolutely hated <span>{{template.tTask}}</span> and <span>{{template.dTask}}</span>. So, <span>{{template.name}}</span> met with her life mentor 
-			<span>{{template.celebrity}}</span> who told her to learn how to <span>{{template.skill}}</span> with Thinkful. Thinkful didn't offer a course on <span>{{template.skill}}</span> so she studied programming instead. What a great decision! With her new skills, <span>{{template.name}}</span> built a(n) <span>{{template.adjective}}</span> robot named <span>{{template.ocelebrity}}</span> that not only loved <span>{{template.dTask}}</span> but did it <span>{{template.hugeNum}}x</span> faster</p>
+			<button type="reset" name="submit" ng-click="resetForm()">Reset</button>
+		</div>
 	</section>
+	
 </body>
 </html>
