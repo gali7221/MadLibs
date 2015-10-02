@@ -93,6 +93,6 @@ p span {
   -webkit-transition: 1s;
   -moz-transition: 1s;
   -o-transition: 1s;
-  opacity: 0; 
+  opacity: 0.2; 
 }
 
