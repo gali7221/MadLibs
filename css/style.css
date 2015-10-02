@@ -82,6 +82,13 @@ p span {
   margin: 0 5px;
 }
 
+select {
+  border-radius: 40px;
+  margin: 10px 44%;
+}
+
+
+/* Animations */
 .form {
   -webkit-transition: 1s;
   -moz-transition: 1s;
@@ -95,4 +102,3 @@ p span {
   -o-transition: 1s;
   opacity: 0.2; 
 }
-

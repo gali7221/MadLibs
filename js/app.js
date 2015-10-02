@@ -1,6 +1,22 @@
 angular.module('madLibs',['ngMessages', 'ngAnimate'])
   .controller('madlibsController', function($scope){
 
+    $scope.gender = "male";
+    
+    $scope.$watch('gender', function(){
+      if($scope.gender == "male"){
+        $scope.genderHe = "he";
+        $scope.genderHis = "his";
+        $scope.genderHim = "him";  
+      }
+      else {
+        $scope.genderHe = "she";
+        $scope.genderHis = "her";
+        $scope.genderHim = "her";
+      }
+      
+    })
+
     $scope.template = [{
       name: "name",
       dTask: "dTask",
@@ -12,7 +28,6 @@ angular.module('madLibs',['ngMessages', 'ngAnimate'])
       skill: "skill",
       adjective: "adjective"  
     }];
-    
 
     $scope.showError = false;
     $scope.showInput = true;
@@ -33,15 +48,17 @@ angular.module('madLibs',['ngMessages', 'ngAnimate'])
       else {
         console.log('The form is NOT valid!');
         $scope.showError = true;
+        $scope.fade = false;
 
       }
     };
 
     $scope.resetForm = function(){
-      console.log('Reset!');
+      //console.log('Reset!');
+      
       $scope.showMadLibs = true;
       $scope.showInput = true;
-      
+      $scope.fade = false;
       $scope.template.name = null;
       $scope.template.dTask = null;
       $scope.template.ocelebrity = null;
@@ -51,10 +68,6 @@ angular.module('madLibs',['ngMessages', 'ngAnimate'])
       $scope.template.tTask = null;
       $scope.template.skill = null;
       $scope.template.adjective = null;
-      
+
     };
-
-    $scope.display = false;
-    $scope.display1 = true;
-
   });

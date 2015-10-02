@@ -26,7 +26,12 @@
 			All Fields are Required
 		</div>
 
-		<form name="madLibForm" ng-submit="submit()" ng-class="{fade:fade}" novalidate>
+		<select ng-model="gender" ng-show="showInput" ng-class="{fade:fade}">
+			<option value="male">Male</option>
+			<option value="female">Female</option>
+		</select>
+
+		<form name="madLibForm" ng-submit="submit()" ng-show="showInput" ng-class="{fade:fade}" novalidate>
 			<div class="wrapper">
 				<input type="text" placeholder="Name" name="name" ng-model="template.name" required/>
 			</div>
@@ -68,11 +73,11 @@
 		
 		<div class="border-bottom"></div>
 
-		<div class="madlib" ng-class="{fade:!fade}">
-			<p id="male-text"><span>{{template.name}}</span> was a <span>{{template.jobTitle}}</span> who loved technology. Although he loved parts of his job, he absolutely hated <span>{{template.tTask}}</span> and <span>{{template.dTask}}</span>. So, <span>{{template.name}}</span> met with his life mentor 
-			<span>{{template.celebrity}}</span> who told him to learn how to <span>{{template.skill}}</span> with Thinkful. Thinkful didn't offer a course on <span>{{template.skill}}</span> so he studied programming instead. What a great decision! With his new skills, <span>{{template.name}}</span> built a(n) <span>{{template.adjective}}</span> robot named <span>{{template.ocelebrity}}</span> that not only loved <span>{{template.dTask}}</span> but did it <span>{{template.hugeNum}}x</span> faster</p>
+		<div class="madlib" ng-class="{fade:!fade}" ng-hide="showMadLibs">
+			<p id="male-text"><span>{{template.name}}</span> was a <span>{{template.jobTitle}}</span> who loved technology. Although {{genderHe}} loved parts of {{genderHis}} job, {{genderHe}} absolutely hated <span>{{template.tTask}}</span> and <span>{{template.dTask}}</span>. So, <span>{{template.name}}</span> met with {{genderHis}} life mentor 
+			<span>{{template.celebrity}}</span> who told {{genderHim}} to learn how to <span>{{template.skill}}</span> with Thinkful. Thinkful didn't offer a course on <span>{{template.skill}}</span> so he studied programming instead. What a great decision! With {{genderHis}} new skills, <span>{{template.name}}</span> built a(n) <span>{{template.adjective}}</span> robot named <span>{{template.ocelebrity}}</span> that not only loved <span>{{template.dTask}}</span> but did it <span>{{template.hugeNum}}x</span> faster</p>
 
-			<button class="reset-button" type="reset" ng-click="fade=!fade" name="submit" ng-click="resetForm()">Reset</button>
+			<button class="reset-button" type="reset" ng-click="resetForm()">Reset</button>
 		</div>
 	</section>
 	
