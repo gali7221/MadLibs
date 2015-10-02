@@ -1,4 +1,4 @@
-angular.module('madLibs',['ngMessages'])
+angular.module('madLibs',['ngMessages', 'ngAnimate'])
   .controller('madlibsController', function($scope){
 
     $scope.template = [{
@@ -19,6 +19,8 @@ angular.module('madLibs',['ngMessages'])
     $scope.showMadLibs = true;
 
 
+    // Animation
+    $scope.fade = false;
 
     $scope.submit = function(){
       if($scope.madLibForm.$valid ) {
